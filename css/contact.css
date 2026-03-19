@@ -1,0 +1,94 @@
+.contact {
+  padding: 100px 0;
+}
+
+.contact-content {
+  text-align: center;
+}
+
+.contact-card {
+  margin-top: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 40px; /* px */
+
+  padding: 40px;
+
+  border-radius: 24px;
+
+  background: rgba(24, 40, 79, 0.478);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  box-shadow: 0 20px 60px rgba(7, 15, 34, 0.6);
+}
+
+.contact-left img {
+  width: 220px;   /* 🔥 antes estaba enorme */
+  height: 260px;
+
+  object-fit: cover;
+
+  border-radius: 16px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+.contact-left {
+  display: flex;
+  justify-content: center;
+}
+.contact-right {
+  max-width: 350px;
+}
+
+.contact-info p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin: 5px 0;
+}
+
+.contact-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  transition: 0.4s;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.8),
+    0 0 30px rgba(108, 99, 255, 0.15);
+}
+
+.contact .section-title {
+  margin-bottom: 20px;
+
+  background: linear-gradient(90deg, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 900px) {
+
+  .contact-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .contact-left img {
+    width: 180px;
+    height: auto;
+  }
+
+  .contact-buttons {
+    justify-content: center;
+  }
+
+}

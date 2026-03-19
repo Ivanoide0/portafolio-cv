@@ -1,0 +1,180 @@
+.why {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+
+  background: #0f0f0f;
+}
+
+.why::before,
+.why::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+.why::before {
+  background: #1a1761;
+  top: -100px;
+  left: -100px;
+  animation: float1 12s infinite alternate ease-in-out;
+}
+
+.why::after {
+  background: #0a404b;
+  bottom: -100px;
+  right: -100px;
+  animation: float2 14s infinite alternate ease-in-out;
+}
+
+@keyframes float1 {
+  from { transform: translate(0,0); }
+  to { transform: translate(100px, 80px); }
+}
+
+@keyframes float2 {
+  from { transform: translate(0,0); }
+  to { transform: translate(-120px, -60px); }
+}
+
+.why-content {
+  position: relative;
+  z-index: 2;
+}
+
+.why-text {
+  flex: 1;
+}
+
+.why-text h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+
+  background: linear-gradient(90deg, #fff, #ffffff, #fff);
+  background-size: 200%;
+  animation: shine 6s infinite linear;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes shine {
+  from { background-position: 0%; }
+  to { background-position: 200%; }
+}
+
+.why-subtitle {
+  opacity: 0.7;
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+
+.why-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.why-card {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+
+  padding: 22px;
+  border-radius: 16px;
+
+  border: 1px solid rgba(255,255,255,0.06);
+
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.why-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+
+  background: linear-gradient(120deg, transparent, #6c63ff, #00d4ff, transparent);
+  opacity: 0;
+  transition: 0.4s;
+
+  -webkit-mask: 
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+}
+.why-card:hover::before {
+  opacity: 1;
+}
+.why-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x) var(--y), rgba(255,255,255,0.08), transparent 40%);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.why-card:hover::after {
+  opacity: 1;
+}
+
+.why-card:hover {
+  transform: translateY(-10px) scale(1.01);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.7),
+    0 0 25px rgba(108, 99, 255, 0.25);
+}
+.why-card h3 {
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.why-image img {
+  width: 350px;
+  border-radius: 20px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  transition: 0.4s;
+}
+
+.why-image img:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+
+.why-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.6s ease;
+}
+
+.why-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+
+  .why-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .why-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+}
